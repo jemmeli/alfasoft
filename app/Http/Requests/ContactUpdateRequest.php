@@ -27,7 +27,7 @@ class ContactUpdateRequest extends FormRequest
     {
         $contact = Contact::findOrFail( $request->segment( 2 ) );
         return [
-            'name' => 'required|string|min:5',
+            'name' => 'required|string|min:6',
             'contact' => 'required|digits:9|unique:contacts,id,'. $contact->id,
             'email' => 'required|email|unique:contacts,id,'. $contact->id
         ];
