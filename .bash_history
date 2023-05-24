@@ -81,3 +81,12 @@ php artisan ui bootstrap
 php artisan ui:controllers
 npm install && npm run dev
 php artisan ui bootstrap --auth
+php artisan ui bootstrap --auth
+npm install && npm run dev
+git add .
+git commit -m "generate ContactController resource and generate bootstrap ui views"
+git push
+git status
+clear
+php artisan route:list
+composer dump-autoload
