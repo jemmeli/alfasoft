@@ -3,12 +3,8 @@
 @section('content')
 <div class="container">
     <h1>Contacts</h1>
-    @if(session('success'))
-        <div class='alert alert-success'>
-            {{ session('success') }}
-        </div>
-    @endif
-    
+    <a href="{{ route('contacts.create') }}" class='btn btn-primary'>ADD Contact</a> 
+    <hr>
     <table class="table">
       <thead>
         <tr>
