@@ -25,6 +25,7 @@
                     <td>{{ $contact->email }}</td>
                     <td>
                         <a href="{{route('contacts.edit', $contact->id )}}" class='btn btn-primary'>Edit</a>
+                        <a href="{{route('contacts.show', $contact->id )}}" class='btn btn-success'>Show</a>
                         <form action='{{ route('contacts.destroy', $contact) }}' method='POST' style='display: inline;'>
                             @csrf
                             @method('DELETE')
