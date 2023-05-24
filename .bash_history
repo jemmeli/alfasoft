@@ -70,3 +70,14 @@ git push
 php artisan make:seeder ContactSeeder
 php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
+git add .
+git commit -m "finish the creation of migration , factory and seeders of the contacts table"
+git push
+clear
+php artisan make:controller ContactController --resource
+composer require laravel/ui 3.0.0
+php artisan ui bootstrap
+php artisan ui:controllers
+npm install && npm run dev
+php artisan ui bootstrap --auth
