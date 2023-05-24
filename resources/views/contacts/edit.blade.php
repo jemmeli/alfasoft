@@ -6,14 +6,15 @@
     
     <div class="card">
         <div class="card-header">
-            Create Contact
+            Edit Contact 
         </div>
         <div class="card-body">
-            <form method='POST' action="{{ route('contacts.store' )}}">
+            <form method='POST' action="{{ route('contacts.update', $contact->id )}}">
                 @csrf
+                @method('PUT')
                 <div class='form-group'>
                     <label for='name'>Name</label>
-                    <input type='input' class='form-control' id='name'  name='name' value="{{old('name')}}" required >
+                    <input type='input' class='form-control' id='name'  name='name' value="{{old('name', $contact->name)}}" required >
                     @error('name')
                         <span class='text-danger'>{{$message}}</span>
                     @enderror
@@ -21,7 +22,7 @@
                 
                 <div class='form-group'>
                     <label for='contact'>Contact</label>
-                    <input type='number' class='form-control' id='contact'  name='contact' value="{{old('contact')}}"  required >
+                    <input type='number' class='form-control' id='contact'  name='contact' value="{{old('contact', $contact->contact)}}"  required >
                     @error('contact')
                         <span class='text-danger'>{{$message}}</span>
                     @enderror
@@ -29,13 +30,13 @@
                 
                 <div class='form-group'>
                     <label for='email'>Email</label>
-                    <input type='email' class='form-control' id='email'  name='email' value="{{old('email')}}"  required >
+                    <input type='email' class='form-control' id='email'  name='email' value="{{old('email', $contact->email)}}"  required >
                     @error('email')
                         <span class='text-danger'>{{$message}}</span>
                     @enderror
                 </div>
                 
-                <button type='submit' class='btn btn-primary'>ADD</button>
+                <button type='submit' class='btn btn-primary'>Edit</button>
                 
             </form>
         </div>

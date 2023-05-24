@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use App\Http\Requests\ContactUpdateRequest;
+
 
 class ContactController extends Controller
 {
@@ -60,7 +62,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return view( 'contacts.edit', ['contact' => $contact] );
     }
 
     /**
@@ -70,9 +73,11 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactUpdateRequest $request, $id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->update(  $request->validated()  );
+        return redirect()->route('contacts.index')->with('success', 'Contact Updated !');
     }
 
     /**
