@@ -32,3 +32,41 @@ git init
 git branch -a
 git branch
 git status
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/jemmeli/alfasoft.git
+git push -u origin master
+git push -u origin master
+git push -u origin master
+git push -u origin master
+git remote set-url origin git@github.com:jemmeli/https://github.com/jemmeli/alfasoft.git
+git remote -v
+git push
+git push --set-upstream origin master
+git remote set-url origin git@github.com:jemmeli/alfasoft.git
+git remote -v
+git push
+git push --set-upstream origin master
+git remote add origin https://github.com/jemmeli/alfasoft.git
+git push origin master
+git remote set-url origin git@github.com:jemmeli/https://github.com/jemmeli/alfasoft.git
+git push origin master
+git remote set-url origin git@github.com:jemmeli/github.com/jemmeli/alfasoft.git
+git push origin master
+git remote set-url origin git@github.com:jemmeli/https://github.com/jemmeli/alfasoft.git
+git remote add origin https://github.com/jemmeli/alfasoft.git
+git remote -v
+git remote set-url https://github.com/jemmeli/alfasoft.git
+git remote -v
+git remote set-url origin https://github.com/jemmeli/alfasoft.git
+git remote -v
+git push -u origin master
+git push -u origin master
+clear
+php artisan make:model Contact -mf
+git add .
+git commit -m "create Contact model and their migration and factory files"
+git push
+php artisan make:seeder ContactSeeder
+php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
