@@ -3,9 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Contacts</h1>
-    <a href="{{ route('contacts.index') }}" class='btn btn-success'>Contacts List</a> 
-    <a href="{{ route('contacts.create') }}" class='btn btn-primary'>ADD New Contact</a> 
-    <hr>
+    
     
     <div class='card'>
         <div class='card-body'>
@@ -20,6 +18,13 @@
             </div>
         </div>
     </div>
+    <a href="{{ route('contacts.edit', $contact->id ) }}" class='btn btn-success mr-2'>Edit</a> 
+    
+    <form action='{{ route('contacts.destroy', $contact) }}' method='POST' style='display: inline;'>
+        @csrf
+        @method('DELETE')
+        <button type='submit' onclick="return confirm('Sure you want to Delete this Contact')" class='btn btn-danger'>Delete</a>
+    </form>
     
     
     

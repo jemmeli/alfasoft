@@ -17,6 +17,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+        //$this->authorize('contact_access');
         $contacts = Contact::orderBy('id', 'DESC')->paginate(10); 
         return view( 'contacts.index', ['contacts' => $contacts] );
     }
@@ -28,6 +29,7 @@ class ContactController extends Controller
      */
     public function create()
     {
+        $this->authorize('contact_create');
         return view( 'contacts.create' );
     }
 
@@ -39,6 +41,7 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
+        $this->authorize('contact_edit');
         Contact::Create( $request->validated() );
         return redirect()->route('contacts.index')->with('success', 'Contact Created');
     }
@@ -51,6 +54,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('contact_show');
         $contact = Contact::findOrFail($id);
         return view( 'contacts.show', ['contact' => $contact] );
     }
@@ -63,6 +67,7 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('contact_edit');
         $contact = Contact::findOrFail($id);
         return view( 'contacts.edit', ['contact' => $contact] );
     }
@@ -76,6 +81,7 @@ class ContactController extends Controller
      */
     public function update(ContactUpdateRequest $request, $id)
     {
+        $this->authorize('contact_edit');
         $contact = Contact::findOrFail($id);
         $contact->update(  $request->validated()  );
         return redirect()->route('contacts.index')->with('success', 'Contact Updated !');
@@ -89,6 +95,7 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('contact_delete');
         $contact = Contact::findOrFail($id);
         $contact->delete();
         return redirect()->route('contacts.index')->with('success', 'Contact Deleted !');
